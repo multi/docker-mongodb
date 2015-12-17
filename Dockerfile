@@ -1,6 +1,6 @@
 # multi/mongodb:3.0.7
 
-FROM alpine:edge
+FROM alpine:3.2
 
 ENV MONGODB_VERSION=3.0.7 WIREDTIGER_VERSION=2.7.0
 
@@ -11,7 +11,7 @@ RUN echo "@testing http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/
     apk upgrade && \
     apk add libpcrecpp libstdc++ libgcc pcre libexecinfo@testing snappy libpcap libatomic_ops && \
     apk add libexecinfo-dev@testing && \
-    apk add -t build-deps file autoconf automake libtool build-base ncurses-libs linux-headers scons snappy-dev zlib-dev pcre-dev libpcap-dev openssl-dev libatomic_ops-dev && \
+    apk add -t build-deps file autoconf automake libtool build-base linux-headers scons snappy-dev zlib-dev pcre-dev libpcap-dev openssl-dev libatomic_ops-dev && \
     cd /tmp && \
     wget http://source.wiredtiger.com/releases/wiredtiger-${WIREDTIGER_VERSION}.tar.bz2 && \
     tar jxf wiredtiger-${WIREDTIGER_VERSION}.tar.bz2 && \
